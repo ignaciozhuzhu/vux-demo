@@ -1,39 +1,47 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <h1 class="title">营养师列表</h1>
+    <group style="width: 48%;    display: inline-block;">
+      <selector :value.sync="value0" placeholder="全部医院" :options="list"></selector>
+    </group>
+    <group style="width: 48%;    display: inline-block;">
+      <selector :value.sync="value0" placeholder="全部科室" :options="list"></selector>
+    </group>
+    <Docs></Docs>
+    <Docs></Docs>
+    <Docs></Docs>
+    <Docs></Docs>
+    <Docs></Docs>
+    <Docs></Docs>
+    <Docs></Docs>
   </div>
 </template>
-
 <script>
+import Docs from './Docs.vue'
+import { Selector, Group } from 'vux'
 export default {
   name: 'hello',
-  data () {
+  components: { Docs, Selector, Group },
+  data() {
     return {
-      msg: '这是第三个页面'
+      defaultValue: '',
+      list: [{ key: '0', value: '全部医院' }, { key: '1', value: '省第一医院' }, { key: '2', value: '省第二医院' }],
+      list2: [{ key: '0', value: '全部科室' }, { key: '1', value: '口腔' }, { key: '2', value: '胸外' }],
+      value0: 0,
+    }
+  },
+  methods: {
+    selected(val) {
+      this.open = val == "2" ? true : false;
+      console.log(22)
     }
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 

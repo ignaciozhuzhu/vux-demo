@@ -19,21 +19,20 @@
     </ul>
   </div>
 </template>
-
 <script>
 export default {
   name: 'hello',
-  data () {
+  data() {
     return {
       msg: '欢迎来到德来联盟'
     }
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 

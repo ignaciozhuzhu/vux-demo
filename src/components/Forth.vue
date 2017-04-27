@@ -1,46 +1,43 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-
-<!--        <span slot="label"><router-link to="/third"><img  src="../assets/vux_logo.png"> </router-link></span>  -->
-
-    </ul>
-        <img style="width:100px;height:100px" src="http://pic6.huitu.com/res/20130116/84481_20130116142820494200_1.jpg"  >  
-        <div style="width:100px;height:100px"><img class="bbb" ></div>
-        <span style="background-image: url(http://pic6.huitu.com/res/20130116/84481_20130116142820494200_1.jpg);width:100px;height:100px" /></span>
-        <img id="next" src="https://www.w3schools.com/css/img_trans.gif" >
+    <h1 class="title">{{ msg }}</h1>
+    <group title="头像">
+      <cell title="姓名" value="蓝精灵" is-link></cell>
+      <cell title="性别" value="男" @click.native="click"></cell>
+      <cell title="年龄" value="19岁" is-link></cell>
+      <cell title="职业" value="IT" is-link></cell>
+      <cell title="家庭住址" value="浙江省西湖区" is-link link="/my/address"></cell>
+      <cell title="邮箱地址" value="未填写" is-link link="/my/email"></cell>
+      <cell title="所在医院" value="浙江省第一人民医院" is-link></cell>
+    </group>
+    <br />
+    <group>
+      <cell title="帮助与反馈" is-link></cell>
+      <cell title="客服电话" value="400-XXXX-XXXX" is-link></cell>
+    </group>
   </div>
 </template>
-
 <script>
+import { Group, Cell } from 'vux'
 export default {
+  components: { Group, Cell },
   name: 'hello',
-  data () {
+  data() {
     return {
-      msg: '这是第四个页面'
+      msg: '我的信息'
+    }
+  },
+  methods: {
+    click: function() {
+      alert('这里将会弹出选择性别')
     }
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
@@ -56,24 +53,5 @@ li {
 
 a {
   color: #42b983;
-}
-.bbb{
- /* background-image: url(http://pic6.huitu.com/res/20130116/84481_20130116142820494200_1.jpg);  */
- background-position: -27px 0;
- display: block;
- border-style:none !important;
- border-width:0 !important;
- background-repeat: no-repeat;
- width:100px;
- height:100px; 
- overflow: hidden; white-space: nowrap;text-indent: 100%;
-}
-*{
-  border:none !important
-}
-#next {
-    width: 43px;
-    height: 44px;
-    background: url(../assets/dashen.jpg) 0 0; 
 }
 </style>

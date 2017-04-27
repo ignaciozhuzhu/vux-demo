@@ -1,23 +1,27 @@
 <template>
   <div class="hello">
-    <h3 class="title">{{ msg }}</h3>
+    <group>
+      <cell title="请输入工作单位/家庭住址"></cell>
+    </group>
     <br>
-    <x-button type="primary" @click.native="click">我也来问</x-button>
+    <br>
+    <br>
+    <x-button type="primary" @click.native="click">保存</x-button>
   </div>
 </template>
 <script>
 import { Group, Cell, XButton } from 'vux'
 export default {
+  components: { Group, Cell, XButton },
   name: 'hello',
-  components: { XButton },
   data() {
     return {
-      msg: '身体小毛病 快速问医生'
+      msg: '家庭住址'
     }
   },
   methods: {
     click: function() {
-      alert('请提问')
+      alert('已保存')
     }
   }
 }

@@ -5,35 +5,43 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
 import Hello from './components/HelloFromVux'
-import Home from './components/Hello'
+import He from './components/Hello'
 import Second from './components/Second'
 import Third from './components/Third'
 import Forth from './components/Forth'
 
+import Email from './components/my/Email'
+import Address from './components/my/Address'
 
 Vue.use(VueRouter)
 
 const routes = [{
-	path: '/',
-	component: Hello,
+  path: '/',
+  component: Hello,
 }, {
-	path: '/first',
-	component: Home
+  path: '/first',
+  component: Hello
 }, {
-	path: '/second',
-	component: Second
+  path: '/second',
+  component: Second
 }, {
-	path: '/third',
-	component: Third
+  path: '/third',
+  component: Third
 }, {
-	path: '/forth',
-	component: Forth
+  path: '/forth',
+  component: Forth
+}, { //该部分是我的信息里的跳转
+  path: '/my/email',
+  component: Email
+}, {
+  path: '/my/address',
+  component: Address
 }]
 
 const router = new VueRouter({
-	mode: 'history',
-	base: __dirname,
-	routes
+  //mode: 'history',
+  //base: __dirname,
+  routes
 })
 
 FastClick.attach(document.body)
@@ -42,6 +50,6 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-	router,
-	render: h => h(App)
+  router,
+  render: h => h(App)
 }).$mount('#app-box')
